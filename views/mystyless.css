@@ -1,0 +1,92 @@
+
+header{
+    background-color: rgb(160, 241, 160);
+    color:red;
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+}
+.toggle-button-demo {
+    text-align: center;
+    margin-top: 40px;
+  }
+  h4 {
+    font-size: 20px;
+    color: #333;
+  }
+  .toggle-ios {
+    display: none;
+  }
+  .toggle-ios + .toggle-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    margin: 0 auto;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: #fbfbfb;
+    border-radius: 2em;
+    padding: 2px;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    border: 1px solid #e8eae9;
+  }
+  .toggle-ios + .toggle-btn:after {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+    left: 0;
+    border-radius: 2em;
+    background: #fbfbfb;
+    -webkit-transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+  }
+  .toggle-ios:checked + .toggle-btn {
+    background: #86d993;
+  }
+  .toggle-ios:checked + .toggle-btn:after {
+    left: 50%;
+  }
+
+  .led {
+    margin: 40px auto;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(138, 138, 138);
+    border-radius: 50%;
+  }
+  #btn{
+    text-align: center;
+  }
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 40px;
+    cursor: pointer;
+  }
+  .button1{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 40px;
+    cursor: pointer;
+  }
