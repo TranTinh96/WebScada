@@ -1,0 +1,4 @@
+<div class="profile-info" data-lock-name=<%= users.local.fullname %> data-lock-email=<%= users.local.email %>>
+	<span class="name"><%= users.local.fullname %></span>
+	<span class="role"><%= users.local.authorization %></span>
+</div>
