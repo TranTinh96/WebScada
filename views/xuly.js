@@ -24,7 +24,19 @@ $(document).ready(function(){
     });
 
     $("#toggle2").click(function(){
-        socket.emit("Camera");
+        socket.emit('FC16-T-ON', {
+            "unit": 1,
+            "address": 2,
+            "values": [88,123,47]
+        });
+    });
+    $("#toggle3").click(function(){
+        socket.emit("FC4-T-ON", {
+            "unit": 1,
+            "address": 0,
+            "length": 10,
+            "interval": 1000
+        });
     });
   
 })
