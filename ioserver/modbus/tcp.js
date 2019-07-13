@@ -140,7 +140,7 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
 
 
 /**
- * Write a Modbus "Read Coils" (FC=01). 
+ *  Modbus "Read Coils" (FC=01). 
  *
  * 
  * @param {number} unit the slave unit address.
@@ -170,7 +170,7 @@ var FC1 = function (io,modbusT,unit, address, length) {
 }
 
 /** 
-* Write a Modbus "Read input status" (FC=02).
+*  Modbus "Read input status" (FC=02).
 *
 * 
 * @param {number} unit the slave unit address.
@@ -201,7 +201,7 @@ var FC2 = function (io, modbusT, unit, address, length) {
 
 
 /**
- * Write a Modbus "Read Holding Registers" (FC=03).
+ *  Modbus "Read Holding Registers" (FC=03).
  * 
  *
  * @param {number} unit the slave unit address.
@@ -231,7 +231,7 @@ var FC3 = function ( io, modbusT, unit, address, length) {
 
 
 /**
- * Write a Modbus "Read Input Registers" (FC=04).
+ *  Modbus "Read Input Registers" (FC=04).
  *
  *
  * @param {number} unit the slave unit address.
@@ -261,7 +261,7 @@ var FC4 = function (io, modbusT, unit, address, length) {
 
 
 /**
- * Write a Modbus "Write Single Coil" (FC=05).
+ *  Modbus "Write Single Coil" (FC=05).
  * 
  *
  * @param {number} unit the slave unit address.
@@ -289,7 +289,7 @@ var FC5 = function ( io,modbusT,unit, address, state) {
 
 
 /**
- * Write a Modbus "Preset Multiple Registers" (FC=16).
+ *  Modbus "Preset Multiple Registers" (FC=16).
  * 
  *
  * @param {number} unit the slave unit address.

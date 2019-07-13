@@ -1,6 +1,6 @@
-const socket = io("http://localhost:8080");
+const socket = io("http://localhost:3000");
 socket.on("FC1-T-EM",function(data){
-    if(data[0]==1){
+    if(data.data[0]==true){
         $(".led").css("background-color", "yellow");
     }
     else{
