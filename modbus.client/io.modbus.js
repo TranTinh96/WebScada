@@ -5,7 +5,6 @@ var tcpPort = new Modbus.TcpPort("127.0.0.1",{ port:parseInt(502)});
 var config=require("../models/home/modbus/configuration.model")
 
 module.exports=function(app,io){
-    var router
     var modbusS;
     var modbusT;
     var intervalIDsS = [],intervalIDsT = [];

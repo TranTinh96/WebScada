@@ -11,8 +11,6 @@
 
 module.exports=function(io,socket,modbusT,intervalIDsT) {
 
-    Led(io,socket);
-    
    //ReadCoils
    socket.on('FC1-T-ON', function (data) {
        if (!data) return;
@@ -139,6 +137,8 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
 
 
 
+
+
 /**
  * Write a Modbus "Read Coils" (FC=01). 
  *
@@ -149,16 +149,6 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
  * 
  * 
  */
-var Led=function(io,socket){
-    socket.on("Light",function(data)
-    {   
-        console.log(data);
-        socket.emit("Led",data);      
-    });
-}
-
-
-
 var FC1 = function (io,modbusT,unit, address, length) {
     modbusT.writeFC1(unit, address, length, function (err, msg) {
         if (err) {
@@ -172,6 +162,8 @@ var FC1 = function (io,modbusT,unit, address, length) {
                 'data':     msg.data,
                 'flag':     'get'
             });
+            console.log("---------------------------------FC1--------------------------")
+            console.log(msg.data)
         }
     }
     );
@@ -200,6 +192,8 @@ var FC2 = function (io, modbusT, unit, address, length) {
                     'data':     msg.data,
                     'flag':     'get'
                 });
+                console.log("---------------------------------FC2--------------------------")
+                console.log(msg.data)
             }
         }
     );
@@ -228,6 +222,8 @@ var FC3 = function ( io, modbusT, unit, address, length) {
                     'data':     msg.data,
                     'flag':     'get'
                 });
+                console.log("---------------------------------FC3--------------------------")
+                console.log(msg.data)
             }
         }
     );
@@ -256,6 +252,8 @@ var FC4 = function (io, modbusT, unit, address, length) {
                     'data':     msg.data,
                     'flag':     'get'
                 });
+                console.log("---------------------------------FC4--------------------------")
+                console.log(msg.data)
             }
         }
     );

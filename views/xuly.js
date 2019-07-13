@@ -1,6 +1,6 @@
 const socket = io("http://localhost:8080");
-socket.on("Led",function(data){
-    if(data==1){
+socket.on("FC1-T-EM",function(data){
+    if(data[0]==1){
         $(".led").css("background-color", "yellow");
     }
     else{
@@ -11,10 +11,15 @@ socket.on("Led",function(data){
 $(document).ready(function(){
 
     $("#toggle1").click(function(){
-        socket.emit('FC1-T-ON', {
+        socket.emit('FC5-T-ON', {
             "unit": 1,
             "address": 2,
             "state": Boolean(this.checked)
+        });
+        socket.emit("FC1-T-ON", {
+            "unit": 1,
+            "address": 2,
+            "length": 1
         });
     });
 
