@@ -1,0 +1,97 @@
+.row-opc{
+  margin-left:-0px !important;
+  margin-right:-5px !important; 
+  margin-top:8px !important;
+  
+}
+.toggle-2{
+  padding : 0px 0 10px 0px !important;
+}
+.btn-circle {   
+  width: 30px;    
+  height: 30px;   
+  text-align: center; 
+  padding: 6px 0; 
+  font-size: 12px;    
+  line-height: 1.428571429;   
+  border-radius: 15px;
+  margin-right: 3px;
+  }
+/*-----------------------------------Modal---------------------------------------*/
+.modal-width{
+  width: 480px !important;
+}
+.row-modal-1{
+  padding: 10px  0px !important;
+  border: 0px solid white !important;
+  color: white;
+}
+.modal-content-1{
+  border-radius: 0px !important;
+ 
+}
+.add-lable-2{
+  font-size: 13.8px !important;
+  padding-bottom: 6px ;
+}
+.col-pad{
+  padding: 0px !important;
+}
+.input-2{
+  border-radius: 6px !important;
+}
+.modal-foote-3{
+  border: 0px solid white !important;
+  margin: 0px !important;
+}
+.btnok{
+  width: 78px !important;
+  border-radius: 0px !important;
+}
+.btn-color{
+  background-color: #33b5e5 !important;
+  color:white;
+}
+.btn-color:hover{
+  color: white;
+}
+.menu-setting{
+  border: 0.5px solid #f7f7f7;
+}
+#address-space{
+  margin-top: 10px;
+}
+#treeBasic{
+  color: white;
+}
+#resizerY {
+  height: 2px;
+  position: relative;
+  left: 0;
+  right: 0;
+  background: #1260af;
+  padding: 0px !important;
+  margin-bottom: 0px !important;
+}
+#element3 {
+  height: 408px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  max-height: 492px;
+  min-height: 70px;
+}
+#topElements {
+  min-height: 271px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  max-height: 695px;
+}
+#rezizeArea {
+  height: 710px;
+  position: relative;
+}

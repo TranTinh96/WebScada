@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="fixed sidebar-left-collapsed">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Modbus</title>
+	<link rel="shortcut icon" type="image/png" href="../assets/images/icons/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet"
+		href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light">
+	<link rel="stylesheet" href="assets/vendor/propeller/css/propeller.min.css" />
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="assets/vendor/summernote/summernote.css" />
+	<link rel="stylesheet" href="assets/vendor/summernote/summernote-bs3.css" />
+	<link rel="stylesheet" href="assets/stylesheets/theme.css" />
+	<link rel="stylesheet" href="assets/stylesheets/styless.css" />
+	<link rel="stylesheet" href="assets/table/css/util.css" />
+	<link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+	<link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+	<script src="../assets/vendor/jquery/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+	<section class="body">
+		<header class="header">
+			<div class="logo-container">
+				<a class="logo">
+					<img src="../assets/images/logo.png" height="35" alt="JSOFT Admin" />
+				</a>
+			</div>
+
+			<!----------------------------------- start: search & user box ----------------------------------->
+			<div class="header-right">
+
+				<ul class="notifications">
+					<li>
+						<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+							<i class="fa fa-tasks"></i>
+							<span class="badge">3</span>
+						</a>
+
+						<div class="dropdown-menu notification-menu large">
+							<div class="notification-title">
+								<span class="pull-right label label-default">3</span>
+								Tasks
+							</div>
+
+							<div class="content">
+								<ul>
+									<li>
+										<p class="clearfix mb-xs">
+											<span class="message pull-left">Generating Sales
+												Report</span>
+											<span class="message pull-right text-dark">60%</span>
+										</p>
+										<div class="progress progress-xs light">
+											<div class="progress-bar" role="progressbar" aria-valuenow="60"
+												aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<p class="clearfix mb-xs">
+											<span class="message pull-left">Importing Contacts</span>
+											<span class="message pull-right text-dark">98%</span>
+										</p>
+										<div class="progress progress-xs light">
+											<div class="progress-bar" role="progressbar" aria-valuenow="98"
+												aria-valuemin="0" aria-valuemax="100" style="width: 98%;">
+											</div>
+
+										</div>
+									</li>
+
+									<li>
+										<p class="clearfix mb-xs">
+											<span class="message pull-left">Uploading something
+												big</span>
+											<span class="message pull-right text-dark">33%</span>
+										</p>
+										<div class="progress progress-xs light mb-xs">
+											<div class="progress-bar" role="progressbar" aria-valuenow="33"
+												aria-valuemin="0" aria-valuemax="100" style="width: 33%;">
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+							<i class="fa fa-bell"></i>
+							<span class="badge">3</span>
+						</a>
+
+						<div class="dropdown-menu notification-menu">
+							<div class="notification-title">
+								<span class="pull-right label label-default">3</span>
+								Alerts
+							</div>
+
+							<div class="content">
+								<ul>
+									<li>
+										<a href="#" class="clearfix">
+											<div class="image">
+												<i class="fa fa-thumbs-down bg-danger"></i>
+											</div>
+											<span class="title">Server is Down!</span>
+											<span class="message">Just now</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="clearfix">
+											<div class="image">
+												<i class="fa fa-lock bg-warning"></i>
+											</div>
+											<span class="title">User Locked</span>
+											<span class="message">15 minutes ago</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="clearfix">
+											<div class="image">
+												<i class="fa fa-signal bg-success"></i>
+											</div>
+											<span class="title">Connection Restaured</span>
+											<span class="message">10/10/2014</span>
+										</a>
+									</li>
+								</ul>
+
+								<hr />
+
+								<div class="text-right">
+									<a href="#" class="view-more">View All</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<span class="separator"></span>
+				<div id="userbox" class="userbox">
+					<a href="#" data-toggle="dropdown">
+						<figure class="profile-picture">
+							<img src="../assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle"
+								data-lock-picture="assets/images/!logged-user.jpg" />
+						</figure>
+						<div class="profile-info" data-lock-name=<%= users.local.fullname %>
+							data-lock-email=<%= users.local.email %>>
+							<span class="name"><%= users.local.fullname %></span>
+							<span class="role"><%= users.local.authorization %></span>
+						</div>
+						<i class="fa custom-caret"></i>
+					</a>
+					<div class="dropdown-menu">
+						<ul class="list-unstyled">
+							<li class="divider"></li>
+							<li>
+								<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i>
+									My Profile</a>
+							</li>
+							<li>
+								<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i>
+									Lock Screen</a>
+							</li>
+							<li>
+								<a role="menuitem" tabindex="-1" href="/signout"><i class="fa fa-power-off"></i>
+									Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- ----------------------------------------------end: header--------------------------------------------------------- -->
+		<div class="inner-wrapper">
+			<!-- start: sidebar -->
+			<aside id="sidebar-left" class="sidebar-left">
+
+				<div class="sidebar-header">
+					<div class="sidebar-title" style="color:#34495e">
+						Navigation
+					</div>
+					<div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html"
+						data-fire-event="sidebar-left-toggle">
+						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+					</div>
+				</div>
+				<div class="nano">
+					<div class="nano-content">
+						<nav id="menu" class="nav-main" role="navigation">
+							<ul class="nav nav-main">
+								<!------------------------------Home-Project action------------------------->
+
+								<li class="nav-parent">
+									<a>
+										<i class="fa fa-home" aria-hidden="true"></i>
+										<span>Home</span>
+									</a>
+									<ul class="nav nav-children">
+										<li>
+											<a href="/home/project">
+												Project
+											</a>
+										</li>
+										<li >
+											<a href="/home/modbus">
+												Modbus Client
+											</a>
+										</li>
+										<li>
+											<a href="/home/opcua">
+												OPC UA Client
+											</a>
+										</li>
+										<li>
+											<a href="/home/alarms">
+												Alarms
+											</a>
+										</li>
+
+									</ul>
+								</li>
+								<!-----------------------------Dashboard------------------------->
+								<li class="nav-active">
+									<a href="/dashboard">
+										<i class="fa fa-dashboard" aria-hidden="true"></i>
+										<span>Dashboard</span>
+									</a>
+								</li>
+								<!------------------------------Charts------------------------->
+								<li class="nav-children">
+									<a href="/charts">
+										<i class="fa fa-bar-chart" aria-hidden="true"></i>
+										<span>Charts</span>
+									</a>
+								</li>
+								<!------------------------------Table------------------------->
+								<li class="nav-children">
+									<a href="/table">
+										<i class="fa fa-table" aria-hidden="true"></i>
+										<span>Tables</span>
+									</a>
+								</li>
+								<!------------------------------Alarm------------------------->
+								<li class="nav-children">
+									<a href="/alarm">
+										<i class="fa fa-bell" aria-hidden="true"></i>
+										<span>Alarm</span>
+									</a>
+
+								</li>
+								<!------------------------------Report------------------------->
+								<li class="nav-children">
+									<a href="/report">
+										<i class="fa fa-file-text-o" aria-hidden="true"></i>
+										<span>Report</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<hr class="separator" />
+						<div class="sidebar-widget widget-stats">
+							<div class="widget-header">
+								<h6 style="color: white">Devices Information</h6>
+								<div class="widget-toggle" style="color: white">+</div>
+							</div>
+							<div class="widget-content">
+								<ul>
+									<li>
+										<span class="stats-title">CPU</span>
+										<span class="stats-complete">85%</span>
+										<div class="progress">
+											<div class="progress-bar progress-bar-primary progress-without-number"
+												role="progressbar" aria-valuenow="85" aria-valuemin="0"
+												aria-valuemax="100" style="width: 85%;">
+												<span class="sr-only">85% Complete</span>
+											</div>
+										</div>
+									</li>
+									<li>
+										<span class="stats-title">Stat 2</span>
+										<span class="stats-complete">70%</span>
+										<div class="progress">
+											<div class="progress-bar progress-bar-primary progress-without-number"
+												role="progressbar" aria-valuenow="70" aria-valuemin="0"
+												aria-valuemax="100" style="width: 70%;">
+												<span class="sr-only">70% Complete</span>
+											</div>
+										</div>
+									</li>
+									<li>
+										<span class="stats-title">Stat 3</span>
+										<span class="stats-complete">2%</span>
+										<div class="progress">
+											<div class="progress-bar progress-bar-primary progress-without-number"
+												role="progressbar" aria-valuenow="2" aria-valuemin="0"
+												aria-valuemax="100" style="width: 2%;">
+												<span class="sr-only">2% Complete</span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+
+			<!-----------------------------------------------------end: sidebar --------------------------------------------------------->
+			<section role="main" class="content-body">
+				<header class="page-header">
+
+					<h2 style="color:#cccccc"></h2>
+					<div class="right-wrapper pull-right">
+						<ol class="breadcrumbs">
+							<li>
+								<a href="/home"> <i class="fa fa-home"></i></a>
+							</li>
+							<li><span>Dashboard</span></li>
+						</ol>
+						<a class="sidebar-right-toggle" data-open="sidebar-right" style="text-align: center"><i
+								class="fa fa-chevron-left"></i></a>
+					</div>
+				</header>
+			</section>
+	</section>
+	</div>
+	<aside id="sidebar-right" class="sidebar-right">
+		<div class="nano">
+			<div class="nano-content">
+				<a href="#" class="mobile-close visible-xs">
+					Collapse <i class="fa fa-chevron-right"></i>
+				</a>
+
+				<div class="sidebar-right-wrapper">
+					<div class="sidebar-widget widget-calendar">
+						<div data-plugin-datepicker data-plugin-skin="dark" data-date-format="dd-mm-yyyy"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</aside>
+	</section>
+	<script src="assets/jquery/home/home.modbus.js"></script>
+	<script src="assets/vendor/modernizr/modernizr.js"></script>
+	<script src="assets/jquery/modbus.js"></script>
+	<script src="assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+	<script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+	<script src="assets/vendor/nanoscroller/nanoscroller.js"></script>
+	<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+	<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="assets/javascripts/theme.js"></script>
+	<script src="assets/javascripts/theme.custom.js"></script>
+	<script src="assets/javascripts/theme.init.js"></script>
+	<script src="assets/vendor/select2/select2.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/propeller/js/propeller.min.js"></script>
+</body>
+
+</html>

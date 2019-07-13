@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="fixed">
+	<head>
+
+		<meta charset="UTF-8">
+
+		<meta name="keywords" content="HTML5 Admin Template" />
+		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
+		<title>Sign up</title>
+		<link rel="shortcut icon" type="image/png" href="../assets/images/icons/favicon.ico"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../assets/stylesheets/styless.css">
+		<link rel="stylesheet" href="../assets/stylesheets/theme.css" />
+		<link rel="stylesheet" href="../assets/stylesheets/skins/default.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<!-- start: page -->
+		<section class="body-sign body-sign1">
+			<div class="center-sign">
+				<div class="panel panel-sign">
+					<div class="header1">
+						<h3>Sign up</h3>
+					</div>
+					<div class="panel-body">
+						<form method="POST" name="registration">
+							<div class="form-group form-group2 mb-sm">
+								<label for="fullname">Full Name</label>
+								<input  name="fullname" type="text" class="form-control input-lg input-lg1" id="fullname"re />
+							</div>
+							<div class="form-group  form-group2 mb-sm">
+								<label for="email">Email Address</label>
+								<input name="email" type="email" class="form-control input-lg input-lg1" id="email" />
+							</div>
+							<div class="form-group form-group2 mb-sm">
+								<label for="name">User Name</label>
+								<input name="name" type="text"  class="form-control input-lg input-lg1" id="name" />
+							</div>
+							<div class="row">
+								<label class="col-md-12 control-label" for="COMM" style="color:black">Authorization</label>
+								<div class="col-md-12">
+									<select id="COMM" class="form-control mb-md input-lg input-lg1" name="authorization">
+										<option>Administrator </option>
+										<option>Engineer</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group form-group2 mb-none">
+								<div class="row">
+									<div class="col-sm-6 mb-sm">
+										<label for="password">Password</label>
+										<input name="password" type="password" class="form-control input-lg input-lg1" id="password" />
+									</div>
+									<div class="col-sm-6 mb-sm">
+										<label for="password_again">Password Confirmation</label>
+										<input name="password_again" type="password" class="form-control input-lg input-lg1" id="password_again" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row row22">
+								<div class="col-sm-8">
+									<div class="checkbox-custom checkbox-default">
+										<input id="agree" name="agree" type="checkbox" checked />		
+										<label for="agree">I agree with terms of use</label>								
+									</div>
+								</div>
+								<div class="col-sm-4 text-right">
+									<button type="submit" class="btn btn-primary hidden-xs">Sign Up</button>
+									<button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign Up</button>
+								</div>
+							</div>
+							<span class="mt-sm mb-sm line-thru text-center text-uppercase">
+								<span>or</span>
+							</span>
+							<div class="mb-sm text-center">
+								<a class="btn btn-facebook mb-sm ml-sm mr-sm">Connect with <i class="fa fa-facebook"></i></a>
+								<a class="btn btn-twitter mb-sm ml-sm mr-sm">Connect with <i class="fa fa-twitter"></i></a>
+							</div>
+							<p class="text-center ptt">Already have an account? <a href="/signin">Sign In!</a>
+						</form>
+					</div>
+				</div>
+				<p class="text-center text-muted mt-md mb-md" style="font-size:13px;">&copy; Copyright 2019. All rights reserved. Template by Tran Tinh</a>.</p>
+				<div style="text-align:center">
+					<% if (message.length > 0) { %>
+						<div style="padding-right:10px;color:red" class="alert "><i class="fa fa-warning" style="padding-right:10px;color:red" ></i><%= message %></div>
+					<% } %>
+				</div>
+			</div>
+		</section>
+		<script src="../assets/jquery/signup.js"></script>
+		<script src="../assets/vendor/jquery/jquery.min.js"></script>
+		<script src="../assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+	</body>
+</html>

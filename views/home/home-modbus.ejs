@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html class="fixed sidebar-left-collapsed">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Modbus</title>
+	<link rel="shortcut icon" type="image/png" href="../assets/images/icons/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="https://rawgit.com/anhr/resizer/master/Common.js"></script>
+	<script type="text/javascript" src="https://rawgit.com/anhr/resizer/master/resizer.js"></script>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light">
+	<link rel="stylesheet" href="../assets/vendor/propeller/css/propeller.min.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/table/css/main.css">
+	<link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="../assets/vendor/magnific-popup/magnific-popup.css" />
+	<link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../assets/vendor/summernote/summernote.css" />
+	<link rel="stylesheet" href="../assets/vendor/summernote/summernote-bs3.css" />
+	<link rel="stylesheet" href="../assets/stylesheets/theme.css" />
+	<link rel="stylesheet" href="../assets/stylesheets/styless.css" />
+	<link rel="stylesheet" href="../assets/table/css/util.css" />
+	<link rel="stylesheet" href="../assets/stylesheets/skins/default.css" />
+	<link rel="stylesheet" href="../assets/stylesheets/theme-custom.css">
+	<link rel="stylesheet" href="../assets/vendor/select2/select2.css" />
+	<script src="../assets/vendor/jquery/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+	<section class="body">
+		<header class="header">
+			<div class="logo-container">
+				<a class="logo">
+					<img src="../assets/images/logo.png" height="35" alt="JSOFT Admin" />
+				</a>
+				<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html"
+					data-fire-event="sidebar-left-opened">
+					<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+				</div>
+			</div>
+
+			<!----------------------------------- start: search & user box ----------------------------------->
+			<div class="header-right">
+				<div class="search">
+					<div class="input-group input-search">
+						<input type="text" class="form-control" name="q" id="q" placeholder="Search...">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+						</span>
+					</div>
+				</div>
+				<span class="separator"></span>
+				<ul class="notifications">
+					<li>
+						<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+							<i class="fa fa-tasks"></i>
+							<span class="badge">3</span>
+						</a>
+
+						<div class="dropdown-menu notification-menu large">
+							<div class="notification-title">
+								<span class="pull-right label label-default">3</span>
+								Tasks
+							</div>
+
+							<div class="content">
+								<ul>
+									<li>
+										<p class="clearfix mb-xs">
+											<span class="message pull-left">Generating Sales
+												Report</span>
+											<span class="message pull-right text-dark">60%</span>
+										</p>
+										<div class="progress progress-xs light">
+											<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 60%;">
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<p class="clearfix mb-xs">
+											<span class="message pull-left">Importing Contacts</span>
+											<span class="message pull-right text-dark">98%</span>
+										</p>
+										<div class="progress progress-xs light">
+											<div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0"
+												aria-valuemax="100" style="width: 98%;">
+											</div>
+											
+										</div>
+									</li>
+
+									<li>
+										<p class="clearfix mb-xs">
+											<span class="message pull-left">Uploading something
+												big</span>
+											<span class="message pull-right text-dark">33%</span>
+										</p>
+										<div class="progress progress-xs light mb-xs">
+											<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0"
+												aria-valuemax="100" style="width: 33%;">
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+							<i class="fa fa-bell"></i>
+							<span class="badge">3</span>
+						</a>
+
+						<div class="dropdown-menu notification-menu">
+							<div class="notification-title">
+								<span class="pull-right label label-default">3</span>
+								Alerts
+							</div>
+
+							<div class="content">
+								<ul>
+									<li>
+										<a href="#" class="clearfix">
+											<div class="image">
+												<i class="fa fa-thumbs-down bg-danger"></i>
+											</div>
+											<span class="title">Server is Down!</span>
+											<span class="message">Just now</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="clearfix">
+											<div class="image">
+												<i class="fa fa-lock bg-warning"></i>
+											</div>
+											<span class="title">User Locked</span>
+											<span class="message">15 minutes ago</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="clearfix">
+											<div class="image">
+												<i class="fa fa-signal bg-success"></i>
+											</div>
+											<span class="title">Connection Restaured</span>
+											<span class="message">10/10/2014</span>
+										</a>
+									</li>
+								</ul>
+
+								<hr />
+
+								<div class="text-right">
+									<a href="#" class="view-more">View All</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<span class="separator"></span>
+				<div id="userbox" class="userbox">
+					<a href="#" data-toggle="dropdown">
+						<figure class="profile-picture">
+							<img src="../assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle"
+								data-lock-picture="assets/images/!logged-user.jpg" />
+						</figure>
+<!-----Sign----->								
+						<div class="profile-info" data-lock-name="Trần Tình" data-lock-email="1513516@hcmut.edu.vn">
+							<span class="name">Tran Tinh</span>
+							<span class="role">Admin</span>
+						</div>
+						<i class="fa custom-caret"></i>
+					</a>
+					<div class="dropdown-menu">
+						<ul class="list-unstyled">
+							<li class="divider"></li>
+							<li>
+								<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i>
+									My Profile</a>
+							</li>
+							<li>
+								<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i>
+									Lock Screen</a>
+							</li>
+							<li>
+								<a role="menuitem" tabindex="-1" href="/signout"><i class="fa fa-power-off"></i>
+									Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- ----------------------------------------------end: header--------------------------------------------------------- -->
+		<div class="inner-wrapper">
+			<!-- start: sidebar -->
+			<aside id="sidebar-left" class="sidebar-left">
+
+				<div class="sidebar-header">
+					<div class="sidebar-title" style="color:#34495e">
+						Navigation
+					</div>
+					<div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html"
+						data-fire-event="sidebar-left-toggle">
+						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+					</div>
+				</div>
+				<div class="nano">
+					<div class="nano-content">
+						<nav id="menu" class="nav-main" role="navigation">
+							<ul class="nav nav-main">
+								<!------------------------------Home-Project action------------------------->
+
+								<li class="nav-parent nav-expanded nav-active">
+									<a>
+										<i class="fa fa-home" aria-hidden="true"></i>
+										<span>Home</span>
+									</a>
+									<ul class="nav nav-children">
+										<li>
+											<a href="/home/project">
+												Project
+											</a>
+										</li>
+										<li class="nav-active">
+											<a href="/home/modbus">
+												Modbus Client
+											</a>
+										</li>
+										<li>
+											<a href="/home/opcua">
+												OPC UA Client
+											</a>
+										</li>
+										<li>
+											<a href="/home/alarms">
+												Alarms
+											</a>
+										</li>
+								
+									</ul>
+								</li>
+								<!-----------------------------Dashboard------------------------->
+								<li class="nav-children">
+									<a href="/dashboard">
+										<i class="fa fa-dashboard" aria-hidden="true"></i>
+										<span>Dashboard</span>
+									</a>
+								</li>
+								<!------------------------------Charts------------------------->
+								<li class="nav-children">
+									<a href="/charts">
+										<i class="fa fa-bar-chart" aria-hidden="true"></i>
+										<span>Charts</span>
+									</a>
+								</li>
+								<!------------------------------Table------------------------->
+								<li class="nav-children">
+									<a href="/table">
+										<i class="fa fa-table" aria-hidden="true"></i>
+										<span>Tables</span>
+									</a>
+								</li>
+								<!------------------------------Alarm------------------------->
+								<li class="nav-children">
+									<a href="/alarm">
+										<i class="fa fa-bell" aria-hidden="true"></i>
+										<span>Alarm</span>
+									</a>
+
+								</li>
+								<!------------------------------Report------------------------->
+								<li class="nav-children">
+									<a href="/report">
+										<i class="fa fa-file-text-o" aria-hidden="true"></i>
+										<span>Report</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<hr class="separator" />
+						<div class="sidebar-widget widget-stats">
+							<div class="widget-header">
+								<h6 style="color: white">Devices Information</h6>
+								<div class="widget-toggle" style="color: white">+</div>
+							</div>
+							<div class="widget-content">
+								<ul>
+									<li>
+										<span class="stats-title">CPU</span>
+										<span class="stats-complete">85%</span>
+										<div class="progress">
+											<div class="progress-bar progress-bar-primary progress-without-number"
+												role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+												style="width: 85%;">
+												<span class="sr-only">85% Complete</span>
+											</div>
+										</div>
+									</li>
+									<li>
+										<span class="stats-title">Stat 2</span>
+										<span class="stats-complete">70%</span>
+										<div class="progress">
+											<div class="progress-bar progress-bar-primary progress-without-number"
+												role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+												style="width: 70%;">
+												<span class="sr-only">70% Complete</span>
+											</div>
+										</div>
+									</li>
+									<li>
+										<span class="stats-title" >Stat 3</span>
+										<span class="stats-complete">2%</span>
+										<div class="progress">
+											<div class="progress-bar progress-bar-primary progress-without-number"
+												role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"
+												style="width: 2%;">
+												<span class="sr-only">2% Complete</span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+
+			<!-----------------------------------------------------end: sidebar --------------------------------------------------------->
+			<section role="main" class="content-body">
+				<header class="page-header">
+
+					<h2 style="color:#cccccc"></h2>
+					<div class="right-wrapper pull-right">
+						<ol class="breadcrumbs">
+							<li>
+								<a href="/home"> <i class="fa fa-home"></i></a>
+							</li>
+							<li><span>Home</span></li>
+							<li><span>Modbus Client</span></li>
+						</ol>
+						<a class="sidebar-right-toggle" data-open="sidebar-right" style="text-align: center"><i
+								class="fa fa-chevron-left"></i></a>
+					</div>
+				</header>
+
+				<!-----------------------------start: page-------------------------------->
+
+				<section class="content-with-menu mailbox">
+					<div class="content-with-menu-container" data-mailbox data-mailbox-view="folder">
+						<div class="inner-menu-toggle">
+							<a href="#" class="inner-menu-expand" data-open="inner-menu">
+								Show Menu <i class="fa fa-chevron-right"></i>
+							</a>
+						</div>
+
+						<menu id="content-menu" class="inner-menu" role="menu">
+							<div class="nano">
+								<div class="nano-content nano-content1">
+									<div class="inner-menu-content">
+										<div class="toggle toggle1" data-plugin-toggle="">
+											<!-----------------------Configuration------------------------------->
+											<form method="POST" id="form_modbus">
+												<div class="toggle">
+													<label>Configuration</label>
+													<div class="toggle-content">
+														<div class="form-group form-group1">
+															<div class=" row">
+																<label class="col-md-12 control-label" for="devicename" style="color: white">Device Name</label>
+																<div class="col-md-12">
+																	<input type="text" class="form-control" id="devicename"	name="devicename" required>
+																</div>
+															</div>
+															<div style="margin:10px;"></div>
+															<div class=" row">
+																<label class="col-md-12 control-label" for="slave"style="color: white">SlaveID</label>
+																<div class="col-md-12">
+																	<input type="number" class="form-control" id="slave" name="slaveID"
+																		required min="0">
+																</div>
+															</div>
+															<div style="margin-bottom:10px;"></div>
+															<div class=" row">
+																<label class="col-md-12 control-label" for="enable"	style="color: white">Enable</label>
+																<div class="col-md-12">
+																	<select id="enable" class="form-control mb-md" name="enable">
+																		<option></option>
+																		<option>True</option>
+																		<option>False</option>
+																	</select>
+																</div>
+															</div>
+															<div class="row">
+																<div class="form-horizontal form-bordered">
+																	<div class="form-group ">
+																		<label class="col-md-12 control-label label-fix"
+																			style="color:white; text-align: left">Interface</label>
+																		<div class="col-md-12" style="margin-left: 100px">
+																			<div class="radio-custom radio-primary col-md-4">
+																				<input type="radio" id="radioExample1" name="serialtcp" value="Serial" checkbox="checkbox">
+																				<label for="radioExample1"style="color:white">Serial</label>
+																			</div>
+																			<div class="radio-custom radio-primary col-md-3">
+																				<input type="radio" id="radioExample2" name="serialtcp" value="TCP" >
+																				<label for="radioExample2" style="color:white"> TCP</label>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div style="border-top:2px solid rgb(255, 255, 255)"></div>
+														</div>
+													</div>
+												</div>
+												<div id="serial">
+													<div class="toggle toggle1">
+														<label>COM </label>
+														<div class="toggle-content">
+															<div class="form-group form-group1">
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="COM" style="color: white">COM</label>
+																	<div class="col-md-12">
+																		<select id="COM" class="form-control mb-md" id="COM" name="Com">
+																			<option></option>
+																			<option>COM1</option>
+																			<option>COM2</option>
+																		</select>
+																	</div>
+																</div>
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="mode"
+																		style="color: white">Mode</label>
+																	<div class="col-md-12">
+																		<select id="mode" class="form-control mb-md" name="mode" >
+																			<option value="rtu">RTU</option>
+																			<option value="ascii">ASCII</option>
+																		</select>
+																	</div>
+																</div>
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="baudrate"
+																		style="color: white">Baud Rate</label>
+																	<div class="col-md-12">
+																		<select id="baudrate" class="form-control mb-md" name="baudrate">
+																			<option value="96000">96000</option>
+																			<option value="115200">115200</option>
+																			<option value="192000">192000</option>
+																		</select>
+																	</div>
+																</div>
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="databits"
+																		style="color: white">Data Bits</label>
+																	<div class="col-md-12">
+																		<select id="databits" class="form-control mb-md" name="databits">
+																			<option value="8">8</option>
+																			<option value="9">9</option>
+																		</select>
+																	</div>
+																</div>
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="stopbits"
+																		style="color: white">Stop
+																		Bits</label>
+																	<div class="col-md-12">
+																		<select id="stopbits" class="form-control mb-md" name="stopbits">
+																			<option value="1">1</option>
+																			<option value="2">2</option>
+																		</select>
+																	</div>
+																</div>
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="parity"
+																		style="color: white">Parity</label>
+																	<div class="col-md-12">
+																		<select id="parity" class="form-control mb-md" name="parity">
+																			<option value="none">none</option>
+																			<option value="even">even</option>
+																			<option value="odd">odd</option>
+
+																		</select>
+																	</div>
+																</div>
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="scanrate"
+																		style="color: white">Scan
+																		Rate</label>
+																	<div class="col-md-12">
+																		<select id="scanrate" class="form-control mb-md" name="scanrate">
+																			<option value="500">500</option>
+																			<option value="1000">1000</option>
+																			<option value="2000">2000</option>
+																		</select>
+																	</div>
+																</div>
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="timeout"
+																		style="color: white">Timeout</label>
+																	<div class="col-md-12">
+																		<select id="timeout" class="form-control mb-md" name="timeout">
+																			<option value="500">500</option>
+																			<option value="1000">1000</option>
+																			<option value="2000">2000</option>
+																		</select>
+																	</div>
+																</div>
+																<div style="text-align: center ;margin-bottom:20px">
+																	<button type="submit" class="mb-xs mt-xs mr-md btn btn-primary" id="btn_serial"><i class="fa fa-cog" style="padding-right:2px"></i> Update</button>
+																	<a href="" type="button" class="mb-xs mt-xs mr-xs btn btn-primary"><i class="fa fa-refresh" style="padding-right:5px"></i> Refresh</a>
+																</div>
+																<div style="border-top:2px solid rgb(255, 255, 255)"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div id="tcp">
+													<div class="toggle toggle1">
+														<label>TCP/IP</label>
+														<div class="toggle-content">
+															<div class="form-group form-group1">
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="host"
+																		style="color: white">Host</label>
+																	<div class="col-md-12">
+																		<input type="text" class="form-control" id="host" name="host">
+																	</div>
+																</div>															
+																<div class=" row">
+																	<label class="col-md-12 control-label" for="port"
+																		style="color: white">Port</label>
+																	<div class="col-md-12">
+																		<input type="text" class="form-control" id="port" name="port">
+																	</div>
+																</div>
+																<div style="margin:20px;"></div>
+																<div style="text-align: center ;margin-bottom:20px">
+																	<button type="submit" class="mb-xs mt-xs mr-md btn btn-primary" id="modbus_tcp"><i class="fa fa-cog" style="padding-right:2px"></i> Update</button>
+																	<a href="" type="button" class="mb-xs mt-xs mr-xs btn btn-primary"><i class="fa fa-refresh" style="padding-right:5px"></i>Refresh</a>
+																</div>
+																<div style="border-top:2px solid rgb(255, 255, 255);">
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+											<!-------------------------------------------End--TCP/IP-------------------------------->
+											<!------------------------------------------Device------------------------------->
+											<div class="toggle active toggle1">
+												<label id="lab1">Devices</label>
+												<div class="toggle-content">
+													<div class="form-group form-group1 form-group2">
+														<div class="container-table100 container-table100-1">
+															<div class="wrap-table100">
+																<div class="table100  table100-1 ver1">
+																	<div class="table100-head">
+																		<table>
+																			<thead>
+																				<tr class="row100 head">
+																					<th class="cell100 column11 table_th">Name</th>
+																					<th class="cell100 column22 table_th">ID</th>
+																					<th class="cell100 column33 table_th">EN</th>
+																					<th class="cell100 column44 table_th">Port</th>
+																					<th class="cell100 column55 table_th"></th>
+																				</tr>
+																			</thead>
+																		</table>
+																	</div>
+																	
+																	<div class="table100-body js-pscroll">
+																		<table>
+
+																			<tbody>	
+																				<% for( var i of ComTCP){%>	
+																					<% if(i.modbusCOM.serialtcp=="Serial"){%>
+																						<tr class="row100 body">
+																							<td class="cell100 column11 table_td table_td1"><%=i.modbusCOM.devicename%></td>
+																							<td class="cell100 column22 table_td table_td1"><%=i.modbusCOM.slaveID%></td>
+																							<td class="cell100 column33 table_td table_td1">
+																								<div class="checkbox-custom checkbox-default" style="margin-left:14px">
+																									<input type="checkbox" checked="" id="ENC" disabled>
+																									<label for="ENC"></label>
+																								</div>
+																							</td>
+																							<td class="cell100 column44 table_td table_td1"><%=i.modbusCOM.Com%></td>	
+																							<td class="actions text-center cell100 colum55">
+																								<a href="/home/modbus/remove/<%=i._id%>"><i class="fa fa-trash-o" style="font-size:15px;color:#0088cc"></i></a>
+																							</td>																				
+																						</tr>	
+																					<%}%>
+																					<% if(i.modbusTCP.serialtcp =="TCP"){%>
+																						<tr class="row100 body">
+																							<td class="cell100 column11 table_td table_td1"><%=i.modbusTCP.devicename%></td>
+																							<td class="cell100 column22 table_td table_td1"><%=i.modbusTCP.slaveID%></td>
+																							<td class="cell100 column33 table_td table_td1">
+																								<div class="checkbox-custom checkbox-default" style="margin-left:14px">
+																									<input type="checkbox" checked="" id="ENC" disabled>
+																									<label for="ENC"></label>
+																								</div>
+																							</td>
+																							<td class="cell100 column44 table_td table_td1"><%=i.modbusTCP.host%></td>
+																							<td class="actions text-center cell100 column55">
+																								<a href="/home/modbus/remove/<%=i._id%>"><i class="fa fa-trash-o" style="font-size:15px;color:#0088cc"></i></a>
+																							</td>																				
+																						</tr>	
+																					<%}%>
+																				<%}%>										
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div style="margin:10px;"></div>
+										<div >																			
+											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="btn_model"><i class="fa fa-plus-square-o" aria-hidden="true" style="padding-right:5px"></i> Add Tag</button>
+											
+											<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+												<div class="modal-dialog modal-dialog-centered" role="document">
+													<div class="modal-content" id="modal-color">
+														<div class="modal-header modal-header1 row row-modal">
+														   <div class="col-md-8 col_padd">
+																<h4 class="modal-title modal-title1 " id="exampleModalCenterTitle"><i class="fa fa-tag"></i> Tag</h4>
+															</div>
+															<div class="col-md-4 col_padd ">
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span>&times;</span></button>
+															</div>
+														</div>
+														<!-------------Form--------------------------->
+														<form class="form-group form-group2" method="POST" id="form_addTag" >
+														<div class="modal-body modal-body1">	
+															<div class="row">																																										
+																<div class="col-md-4">
+																	<div class="form-group form-group2">
+																		<label for="nameModbus" class="add_lable add_lable1">Name</label>
+																		<input name="nameModbus" type="text" class="form-control form-control2  form-control3 mb-sm input-lg input-lg1" id="nameModbus"
+																			required>
+																	</div>
+																</div>																
+																<div class="col-md-4">
+																	<div class="form-group form-group2 ">
+																		<label for="devices" class="add_lable add_lable1">Mode</label>
+																		<select id="devices" class="form-control form-control2  form-control3 mb-sm input-lg input-lg1" name="modeModbus" required>
+																			<option></option>								
+																			<%for(var j of ComTCP){%>
+																				<%if(j.modbusCOM.serialtcp=="Serial"){%>
+																					<option><%=j.modbusCOM.serialtcp%></option>
+																				<%}%>
+																				<%if(j.modbusTCP.serialtcp=="TCP"){%>
+																					 <option><%=j.modbusTCP.serialtcp%></option>											
+																				<%}%>
+																		   <%}%>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-md-4">
+																	<div class="form-group form-group2 ">
+																		<label for="type" class="add_lable add_lable1">Type</label>
+																		<select id="type" class="form-control form-control2  form-control3 input-lg mb-sm input-lg1" name="typeModbus" required>
+																			<option> </option>
+																			<option>readCoils</option>
+																			<option>readDiscreteInputs</option>
+																			<option>readHoldingRegisters</option>
+																			<option>readInputRegisters</option>
+																			<option>writeCoil</option>
+																			<option>writeRegisters</option>																	
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="row">																
+																<input type="hidden" id="slave_id" name="slaveID" >
+																<input type="hidden" id="device_name" name="device" >																									
+																<div class="col-md-4">
+																	<div class="form-group form-group2 ">
+																		<label for="address" class="add_lable add_lable1">Start Address</label>
+																		<input id="address" type="number" class="form-control form-control2   form-control3 mb-md input-lg input-lg1" name="startAddress"min="0" required>
+																	</div>
+																</div>	
+															
+																<div class="col-md-4">
+																	<div class="form-group form-group2 ">
+																		<label for="lengthtt" class="add_lable add_lable1">Length</label>
+																		<input id="lengthtt" type="number" class="form-control form-control2  form-control3 mb-md input-lg input-lg1" name="length" min="0" required>
+																	</div>
+																</div>
+																<div class="col-md-4">
+																	<div class="form-group form-group2 ">
+																		<label for="dataType" class="add_lable add_lable1">Data Type</label>
+																			<select id="dataType" class="form-control form-control2 form-control3 mb-md input-lg input-lg1" name="dataType" required>
+																				<option>  </option>
+																				<option> BOOLEAN </option>
+																				<option> INT16 </option>
+																				<option> UINT16 </option>
+																				<option> INT32 </option>	
+																				<option> UINT32 </option>
+																				<option> INT64 </option>	
+																				<option> UINT64 </option>
+																				<option> FLOAT </option>	
+																				<option> DOUBLE </option>												
+																			</select>
+																	</div>
+																</div>
+															</div>																																																														
+															<div class="modal-footer modal-footer1 modal-footer2">											
+																<div class="col-md-12 col_save">
+																	<button type="submit" class="btn btn-primary btn_save_form" id="btn_save">Save</button>
+																	<button type="button" class="btn btn-secondary btn_close_form" id="btn_save" data-dismiss="modal">Close</button>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</menu>
+						<!-----------------------------Search------------------------------>
+						<div class="inner-body mailbox-folder">
+							<header class="mailbox-header mailbox-header1">
+								<div class="row"> 
+									<div class="col-sm-12">
+										<div class="tabs tabs-primary">	
+											<ul class="nav nav-tabs nav-tabs-1">
+												<li class="active">
+													<a href="#popular1" data-toggle="tab" aria-expanded="true" class="tag_a"><i id="tag-icon"></i> Serial</a>
+												</li>
+												<li>
+													<a href="#recent1" data-toggle="tab" aria-expanded="false" class="tag_a">TCP</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+	
+								</div>
+							</header>
+							<div class="mailbox-email-list mailbox-email-list1">
+								<div>
+									<div class="row">
+										<div class="col-md-12">									
+											<div class="tab-content tab-content1">
+												<div id="popular1" class="tab-pane active">
+													<div class="container-table100 container-table100-2">
+														<div class="wrap-table100">
+															<div class="table100 ver1 m-b-111">
+																<div class="table100-head">
+																	<table>
+																		<thead>
+																			<tr class="row100 head">
+																				<th class="cell100 column12 th1 th2"></th>														
+																				<th class="cell100 column2 th1">Name</th>
+																				<th class="cell100 column3 th1">Address</th>
+																				<th class="cell100 column4 th1">Device</th>
+																				<th class="cell100 column5 th1">TYPE</th>
+																				<th class="cell100 column6 th1">Data Type</th>
+																				<th class="cell100 column7 th1">Byte Order</th>
+																				<th class="cell100 column8 th1">Comment</th>
+																				<th class="cell100 column9 th1 th3"></th>															
+																			</tr>
+																		</thead>
+																	</table>
+																</div>
+																<div >
+																	<div class="table100-body js-pscroll style-5" id="myTable" >
+																	<!-----------------------------------Read Coils Serial------------------------------>
+																		<%if(readC_S !=0){%>
+																			<table class="tbl-accordion-nested-serial">
+																				<thead id="btn1_thead1">
+																					<tr class="row100 body tr_serial_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Read Coils</b>
+																							</div>																																		
+																						</td >																						
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete" data-id="readCoils" ><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																	
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of readC_S){%>															
+																						<tr class="row100 body tr_serial">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custId" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>
+																		<!-----------------------------------Read Discrete Input Serial------------------------------>
+																		<%if(readIn_S !=0){%>
+																			<table class="tbl-accordion-nested-serial">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_serial_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc" ><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Read Discrete Input</b>
+																							</div>																																		
+																						</td>	
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete" data-id="readDiscreteInputs" ><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																		
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of readIn_S ){%>															
+																						<tr class="row100 body tr_serial">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custId" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>
+																		<!-----------------------------------read Holding Registers Serial------------------------------>
+																		<%if(readHReg_S !=0){%>
+																			<table class="tbl-accordion-nested-serial">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_serial_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Read Holding Registers</b>
+																							</div>																																		
+																						</td>
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete" data-id="readHoldingRegisters" ><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																		
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of readHReg_S ){%>															
+																						<tr class="row100 body tr_serial">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custId" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>	
+																		<!-----------------------------------Read Input Registers Serial------------------------------>
+																		<%if(readInReg_S !=0){%>
+																			<table class="tbl-accordion-nested-serial">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_serial_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg"  id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Read Input Registers</b>
+																							</div>																																		
+																						</td>	
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete" data-id="readInputRegisters" ><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																		
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of readInReg_S ){%>															
+																						<tr class="row100 body tr_serial">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custId" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>
+																		<!-----------------------------------Write Coil Serial------------------------------>
+																		<%if(writeC_S !=0){%>
+																			<table class="tbl-accordion-nested-serial">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_serial_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc" ><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Write Coil</b>
+																							</div>																																		
+																						</td>
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete" data-id="writeCoil" ><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																			
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of  writeC_S){%>															
+																						<tr class="row100 body  tr_serial">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custId" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>							
+																		<!-----------------------------------write Registers Serial------------------------------>
+																		<%if(writeReg_S !=0){%>
+																			<table class="tbl-accordion-nested-serial">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_serial_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc" ><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Write Registers</b>
+																							</div>																																		
+																						</td>
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete"  data-id="writeRegisters" ><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																			
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of  writeReg_S){%>															
+																						<tr class="row100 body tr_serial">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custId" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>
+																	</div>																																											
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div id="recent1" class="tab-pane ">
+													<div class="container-table100 container-table100-2">
+														<div class="wrap-table100">
+															<div class="table100 ver1 ">
+																<div class="table100-head">
+																	<table>
+																		<thead>
+																			<tr class="row100 head">
+																				<th class="cell100 column12 th1 th2"></th>														
+																				<th class="cell100 column2 th1">Name</th>
+																				<th class="cell100 column3 th1">Address</th>
+																				<th class="cell100 column4 th1">Device</th>
+																				<th class="cell100 column5 th1">TYPE</th>
+																				<th class="cell100 column6 th1">Data Type</th>
+																				<th class="cell100 column7 th1">Byte Order</th>
+																				<th class="cell100 column8 th1">Comment</th>
+																				<th class="cell100 column9 th1 th3"></th>															
+																			</tr>
+																		</thead>
+																	</table>
+																</div>
+																<div>
+																	<div class="table100-body js-pscroll  style-5" id="mytable1">
+																		<!-----------------------------------Read Coils TCP/IP------------------------------>
+																		<%if(readC_T !=0){%>
+																			<table class="tbl-accordion-nested-tcp">
+																				<thead id="btn1_thead1">
+																					<tr class="row100 body tr_tcp_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Read Coils</b>
+																							</div>																																		
+																						</td>
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete" ><i class=" fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																			
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of readC_T){%>															
+																						<tr class="row100 body tr_tcp">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custIdd" name="name" >																						
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>
+																		<!-----------------------------------Read Discrete Input TCP/IP------------------------------>
+																		<%if(readIn_T !=0){%>
+																			<table class="tbl-accordion-nested-tcp">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_tcp_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Read Discrete Input</b>
+																							</div>																																		
+																						</td>
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete"><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																			
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of readIn_T ){%>															
+																						<tr class="row100 body tr_tcp">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custIdd" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>
+																		<!-----------------------------------read Holding Registers TCP/IP------------------------------>
+																		<%if(readHReg_T !=0){%>
+																			<table class="tbl-accordion-nested-tcp">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_tcp_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Read Holding Registers</b>
+																							</div>																																		
+																						</td>	
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete"><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																		
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of readHReg_T ){%>															
+																						<tr class="row100 body tr_tcp">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custIdd" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>	
+																		<!-----------------------------------Read Input Registers TCP/IP------------------------------>
+																		<%if(readInReg_T !=0){%>
+																			<table class="tbl-accordion-nested-tcp">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_tcp_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Read Input Registers</b>
+																							</div>																																		
+																						</td>	
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete"><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																		
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of readInReg_T ){%>															
+																						<tr class="row100 body tr_tcp">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">																						
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custIdd" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>
+																		<!-----------------------------------Write Coil TCP/IP------------------------------>
+																		<%if(writeC_T !=0){%>
+																			<table class="tbl-accordion-nested-tcp">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_tcp_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Write Coil</b>
+																							</div>																																		
+																						</td>	
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete"><i class="fa fa-trash-o" id="i_icon-1"></i></button>
+																						</td>																		
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of   writeC_T){%>															
+																						<tr class="row100 body tr_tcp">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1"contenteditable="true" ><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<button class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></</button>>
+																							</td>
+																							<input type="hidden" id="custIdd" name="name" >
+																						</tr>	
+																						<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>							
+																		<!-----------------------------------write Registers TCP/IP------------------------------>
+																		<%if(writeReg_T !=0){%>
+																			<table class="tbl-accordion-nested-tcp">
+																				<thead id="btn1_thead1" >
+																					<tr class="row100 body tr_tcp_header">	
+																						<td class="cell100 column12" style="color:rgb(90, 90, 255)">
+																							<button id="btn_acc"><i class="fa fa-caret-right  fa-lg" id="icon_togg"></i></button>
+																						</td>																	
+																						<td colspan="7" style="padding-left:10px">	
+																							<div>																																						
+																								<b>Write Registers</b>
+																							</div>																																		
+																						</td>	
+																						<td  class="cell100 column9">
+																							<button class="delete-row p-r-3" id="bt_edit" ><i class="fa fa-pencil-square-o " id="i_icon-1"></i></button>
+																							<button class="delete-row" id="bt_delete ><i class="fa fa-trash-o " id="i_icon-1"></i></button>
+																						</td>																		
+																					</tr>
+																				</thead>
+																				<tbody>	
+																					<%for( i of  writeReg_T){%>															
+																						<tr class="row100 body tr_tcp">
+																							<td class="cell100 column12 td1"><img src="../assets/images/icons/Untitled.png"></i></td>																																
+																							<td class="cell100 column2 td1" contenteditable="true"><%=i.name %></td>
+																							<td class="cell100 column3 td1"><%=i.address %></td>															
+																							<td class="cell100 column4 td1"><%=i.device %></td>
+																							<td class="cell100 column5 td1"><%=i.type %></td>
+																							<td class="cell100 column6 td1"><%=i.dataType %></td>
+																							<td class="cell100 column7 td1"><%=i.byteOrder %></td>
+																							<td class="cell100 column8 td1"></td>
+																							<td class="actions text-center cell100 column9 td1">
+																								<button class="delete-row p-r-4" id="bt_save" data-id="<%=i._id%>"><i class="fa fa-floppy-o" id="i_icon"></i></button>
+																								<button class="delete-row" id="bt_close"><i class="fa fa-times" id="i_icon"></i></button>
+																							</td>
+																							<input type="hidden" id="custIdd" name="name" >
+																						</tr>	
+																					<%}%>																																																				  									
+																				</tbody>																	
+																			</table>
+																		<%}%>	
+																	</div>												
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>						
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+	</div>
+	<!-----------------------------------------------Xử lí trang------------------------------------------->
+	<!-- -------------------------------------------end: page------------------------------------------- -->
+	<aside id="sidebar-right" class="sidebar-right">
+		<div class="nano">
+			<div class="nano-content">
+				<a href="#" class="mobile-close visible-xs">
+					Collapse <i class="fa fa-chevron-right"></i>
+				</a>
+				
+				<div class="sidebar-right-wrapper">
+					<div class="sidebar-widget widget-calendar">
+						<div data-plugin-datepicker data-plugin-skin="dark" data-date-format="dd-mm-yyyy"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</aside>
+	</section>
+	<script src="../assets/jquery/home/home.modbus.js"></script>
+	<script src="../assets/vendor/modernizr/modernizr.js"></script>
+	<script src="../assets/jquery/modbus.js"></script>
+	<script src="../assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+	<script src="../assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+	<script src="../assets/vendor/nanoscroller/nanoscroller.js"></script>
+	<script src="../assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+	<script src="../assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="../assets/javascripts/theme.js"></script>
+	<script src="../assets/javascripts/theme.custom.js"></script>
+	<script src="../assets/javascripts/theme.init.js"></script>
+	<script src="../assets/vendor/select2/select2.min.js"></script>
+	<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../assets/vendor/propeller/js/propeller.min.js"></script>
+</body>
+
+</html>
