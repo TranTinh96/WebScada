@@ -151,6 +151,8 @@ module.exports=function(io,socket,mobusS,intervalIDsS) {
 
 var FC1 = function (io,mobusS,unit, address, length) {
     mobusS.writeFC1(unit, address, length, function (err, msg) {
+        console.log("-----------------------------------------")
+        console.log(msg)
         if (err) {
             console.log(err);
             io.emit('FC1-S-EM', { 'err': err });
@@ -271,6 +273,7 @@ var FC4 = function (io, mobusS, unit, address, length) {
 var FC5 = function ( io, mobusS,unit, address, state) {
     mobusS.writeFC5(unit, address, state,
         function (err, msg) {
+            console.log("----"+msg)
             if (err) {
                 console.log(err);
                 io.emit('FC5-S-EM', { 'err': err });

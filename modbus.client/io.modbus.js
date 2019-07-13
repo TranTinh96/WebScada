@@ -45,9 +45,9 @@ module.exports=function(app,io){
                      intervalIDsT.map(clearInterval);
                  }); 
                 console.log('a user connected' +"-------"+socket.id);
-                require("../ioserver/modbus/tcp")(io,socket,modbusT,intervalIDsT);
                 require("../ioserver/modbus/serial")(io,socket,modbusS,intervalIDsS );
-                require("../views/socket.io/modbus-client");
+                require("../ioserver/modbus/tcp")(io,socket,modbusT,intervalIDsT);
+               
              })
              res.render("dashboard");
     });
