@@ -14,7 +14,7 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
     Led(io,socket);
     
    //ReadCoils
-   socket.on('FC1_T', function (data) {
+   socket.on('FC1-T-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -37,7 +37,7 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
 
 
    //Read Discrete Inputs
-   socket.on('FC2_T', function (data) {
+   socket.on('FC2-T-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -60,7 +60,7 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
 
 
    //Read Holding Registers
-   socket.on('FC3_T', function (data) {
+   socket.on('FC3-T-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -84,7 +84,7 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
 
 
    //Read Input Registers
-   socket.on('FC4_T', function (data) {
+   socket.on('FC4-T-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -108,7 +108,7 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
 
 
    //writeCoil
-   socket.on('FC5_T', function (data) {
+   socket.on('FC5-T-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -125,7 +125,7 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
 
 
    //writeRegisters
-   socket.on('FC16_T', function (data) {
+   socket.on('FC16-T-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -137,7 +137,7 @@ module.exports=function(io,socket,modbusT,intervalIDsT) {
    });
 };
 
-/*********************************************Library Emit Socket-IO  FC1-FC2-FC3-FC4-C5-FC16************************************** */
+
 
 /**
  * Write a Modbus "Read Coils" (FC=01). 
@@ -163,9 +163,9 @@ var FC1 = function (io,modbusT,unit, address, length) {
     modbusT.writeFC1(unit, address, length, function (err, msg) {
         if (err) {
             console.log(err);
-            io.emit('datatcp', { 'err': err });
+            io.emit('FC1-T-EM', { 'err': err });
         } else {
-            io.emit('datatcp', {
+            io.emit('FC1-T-EM', {
                 'unit':     unit,
                 'type':     1,
                 'address':  address,
@@ -191,9 +191,9 @@ var FC2 = function (io, modbusT, unit, address, length) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('datatcp', { 'err': err });
+                io.emit('FC2-T-EM', { 'err': err });
             } else {
-                io.emit('datatcp', {
+                io.emit('FC2-T-EM', {
                     'unit':     unit,
                     'type':     2,
                     'address':  address,
@@ -219,9 +219,9 @@ var FC3 = function ( io, modbusT, unit, address, length) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('datatcp', { 'err': err });
+                io.emit('FC3-T-EM', { 'err': err });
             } else {
-                io.emit('datatcp', {
+                io.emit('FC3-T-EM', {
                     'unit':     unit,
                     'type':     3,
                     'address':  address,
@@ -247,9 +247,9 @@ var FC4 = function (io, modbusT, unit, address, length) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('datatcp', { 'err': err });
+                io.emit('FC4-T-EM', { 'err': err });
             } else {
-                io.emit('datatcp', {
+                io.emit('FC4-T-EM', {
                     'unit':     unit,
                     'type':     4,
                     'address':  address,
@@ -275,9 +275,9 @@ var FC5 = function ( io,modbusT,unit, address, state) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('datatcp', { 'err': err });
+                io.emit('FC5-T-EM', { 'err': err });
             } else {
-                io.emit('datatcp', {
+                io.emit('FC5-T-EM', {
                     'unit':     unit,
                     'type':     5,
                     'address':  address,
@@ -303,9 +303,9 @@ var FC16 = function ( io, modbusT, unit, address, values) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('datatcp', { 'err': err });
+                io.emit('FC16-T-EM', { 'err': err });
             } else {
-                io.emit('datatcp', {
+                io.emit('FC16-T-EM', {
                     'unit':     unit,
                     'type':     3,
                     'address':  address,
