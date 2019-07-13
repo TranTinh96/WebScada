@@ -8,15 +8,14 @@ socket.on("Led",function(data){
     }
 });
 
-
-socket.on("Cam",function(data){
-  
-});
-
 $(document).ready(function(){
 
     $("#toggle1").click(function(){
-        socket.emit("Light",Number(this.checked));
+        socket.emit('FC1-T-ON', {
+            "unit": 1,
+            "address": 2,
+            "state": Boolean(this.checked)
+        });
     });
 
     $("#toggle2").click(function(){
