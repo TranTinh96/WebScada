@@ -13,7 +13,7 @@ module.exports=function(io,socket,mobusS,intervalIDsS) {
 
    
    //ReadCoils
-   socket.on('FC1_S', function (data) {
+   socket.on('FC1-S-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -36,7 +36,7 @@ module.exports=function(io,socket,mobusS,intervalIDsS) {
 
 
    //Read Discrete Inputs
-   socket.on('FC2_S', function (data) {
+   socket.on('FC2-S-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -59,7 +59,7 @@ module.exports=function(io,socket,mobusS,intervalIDsS) {
 
 
    //Read Holding Registers
-   socket.on('FC3_S', function (data) {
+   socket.on('FC3-S-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -83,7 +83,7 @@ module.exports=function(io,socket,mobusS,intervalIDsS) {
 
 
    //Read Input Registers
-   socket.on('FC4_S', function (data) {
+   socket.on('FC4-S-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -107,7 +107,7 @@ module.exports=function(io,socket,mobusS,intervalIDsS) {
 
 
    //writeCoil
-   socket.on('FC5_S', function (data) {
+   socket.on('FC5-S-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -124,7 +124,7 @@ module.exports=function(io,socket,mobusS,intervalIDsS) {
 
 
    //writeRegisters
-   socket.on('FC16_S', function (data) {
+   socket.on('FC16-S-ON', function (data) {
        if (!data) return;
 
        var unit = data.unit;
@@ -153,15 +153,17 @@ var FC1 = function (io,mobusS,unit, address, length) {
     mobusS.writeFC1(unit, address, length, function (err, msg) {
         if (err) {
             console.log(err);
-            io.emit('data', { 'err': err });
+            io.emit('FC1-S-EM', { 'err': err });
         } else {
-            io.emit('data', {
+            io.emit('FC1-S-EM', {
                 'unit':     unit,
                 'type':     1,
                 'address':  address,
                 'data':     msg.data,
                 'flag':     'get'
             });
+            console.log("---------------------------------FC1-S-------------------------")
+            console.log(msg.data)
         }
     }
     );
@@ -181,15 +183,17 @@ var FC2 = function (io, mobusS, unit, address, length) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('data', { 'err': err });
+                io.emit('FC2-S-EM', { 'err': err });
             } else {
-                io.emit('data', {
+                io.emit('FC2-S-EM', {
                     'unit':     unit,
                     'type':     2,
                     'address':  address,
                     'data':     msg.data,
                     'flag':     'get'
                 });
+                console.log("---------------------------------FC2-S-------------------------")
+                console.log(msg.data)
             }
         }
     );
@@ -209,15 +213,17 @@ var FC3 = function ( io, mobusS, unit, address, length) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('data', { 'err': err });
+                io.emit('FC3-S-EM', { 'err': err });
             } else {
-                io.emit('data', {
+                io.emit('FC3-S-EM', {
                     'unit':     unit,
                     'type':     3,
                     'address':  address,
                     'data':     msg.data,
                     'flag':     'get'
                 });
+                console.log("---------------------------------FC3-S-------------------------")
+                console.log(msg.data)
             }
         }
     );
@@ -237,15 +243,17 @@ var FC4 = function (io, mobusS, unit, address, length) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('data', { 'err': err });
+                io.emit('FC4-S-EM', { 'err': err });
             } else {
-                io.emit('data', {
+                io.emit('FC4-S-EM', {
                     'unit':     unit,
                     'type':     4,
                     'address':  address,
                     'data':     msg.data,
                     'flag':     'get'
                 });
+                console.log("---------------------------------FC3-S-------------------------")
+                console.log(msg.data)
             }
         }
     );
@@ -265,15 +273,15 @@ var FC5 = function ( io, mobusS,unit, address, state) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('data', { 'err': err });
+                io.emit('FC5-S-EM', { 'err': err });
             } else {
-                io.emit('data', {
+                io.emit('FC5-S-EM', {
                     'unit':     unit,
                     'type':     5,
                     'address':  address,
                     'data':     state,
                     'flag':     'set'
-                });
+                }); 
             }
         }
     );
@@ -293,9 +301,9 @@ var FC16 = function ( io, mobusS, unit, address, values) {
         function (err, msg) {
             if (err) {
                 console.log(err);
-                io.emit('data', { 'err': err });
+                io.emit('FC16-S-EM', { 'err': err });
             } else {
-                io.emit('data', {
+                io.emit('FC16-S-EM', {
                     'unit':     unit,
                     'type':     3,
                     'address':  address,

@@ -162,7 +162,7 @@ var FC1 = function (io,modbusT,unit, address, length) {
                 'data':     msg.data,
                 'flag':     'get'
             });
-            console.log("---------------------------------FC1--------------------------")
+            console.log("---------------------------------FC1-T--------------------------")
             console.log(msg.data)
         }
     }
@@ -192,7 +192,7 @@ var FC2 = function (io, modbusT, unit, address, length) {
                     'data':     msg.data,
                     'flag':     'get'
                 });
-                console.log("---------------------------------FC2--------------------------")
+                console.log("---------------------------------FC2-T-------------------------")
                 console.log(msg.data)
             }
         }
@@ -222,7 +222,7 @@ var FC3 = function ( io, modbusT, unit, address, length) {
                     'data':     msg.data,
                     'flag':     'get'
                 });
-                console.log("---------------------------------FC3--------------------------")
+                console.log("---------------------------------FC3-T-------------------------")
                 console.log(msg.data)
             }
         }
@@ -252,7 +252,7 @@ var FC4 = function (io, modbusT, unit, address, length) {
                     'data':     msg.data,
                     'flag':     'get'
                 });
-                console.log("---------------------------------FC4--------------------------")
+                console.log("---------------------------------FC4-T-------------------------")
                 console.log(msg.data)
             }
         }
