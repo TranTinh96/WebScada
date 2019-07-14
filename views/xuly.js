@@ -23,7 +23,7 @@ socket.on("FC4-T-EM",function(data){
 
 
 //FC4-SERIAL
-socket.on("FC3-S-EM",function(data){
+socket.on("FC1-S-EM",function(data){
     $("#FC-S").append( "<div>" + data.data + "</div>");
 });
 
@@ -91,11 +91,20 @@ $(document).ready(function(){
         });
     });
     $("#toggle33").click(function(){
-        socket.emit("FC4-S-ON", {
+        /*
+        socket.emit("FC2-S-ON", {
             "unit": 2,
             "address": 0,
             "length": 5,
             "interval": 2000
+        });
+        */
+        socket.emit("FC1-S-ON", {
+            "unit": 2,
+            "address": 2,
+            "length":5 ,
+            "interval": 2000
+
         });
 
     });

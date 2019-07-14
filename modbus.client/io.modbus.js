@@ -8,7 +8,7 @@ var client = new ModbusRTU();
 var modbusT;
 var intervalIDsT = [];
 
-module.exports = function (app,io) {
+module.exports = function (app, io) {
 
      app.get("/dashboard", function (req, res, next) {
 
@@ -21,7 +21,7 @@ module.exports = function (app,io) {
                     console.log("Serial Close")
                }
                else {
-                    client.connectRTU("COM1", { baudRate: 9600 })
+                    client.connectRTU("COM1", {baudRate: 9600 })
                          .then(setClient)
                          .then(function () {
                               console.log("Modbus Serial Connection");
@@ -58,8 +58,8 @@ module.exports = function (app,io) {
                     intervalIDsT.map(clearInterval);
                });
                console.log('a user connected' + "-------" + socket.id);
-               require("../ioserver/modbus/serial")(io,socket,client);
-               require("../ioserver/modbus/tcp")(io,socket,modbusT,intervalIDsT);
+               require("../ioserver/modbus/serial")(io, socket, client);
+               require("../ioserver/modbus/tcp")(io, socket, modbusT, intervalIDsT);
 
           })
           res.render("dashboard");
