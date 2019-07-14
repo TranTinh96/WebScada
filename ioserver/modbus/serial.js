@@ -9,134 +9,126 @@
  *                                                            *
  **************************************************************/
 
-module.exports=function(io,socket,mobusS,intervalIDsS) {
-
-   
-   //ReadCoils
-   socket.on('FC1-S-ON', function (data) {
-       if (!data) return;
-
-       var unit = data.unit;
-       var address = data.address;
-       var length = data.length;
-       var interval = data.interval;
-
-       if (!unit || typeof address == 'undefined' || !length) return;
-       if (interval) {
-           var id = setInterval(function () {
-               FC1(io,mobusS, unit, address, length);
-           }, interval);
-
-        intervalIDsS.push(id);
-         
-       } else {
-           FC1(io,mobusS, unit, address, length);
-       }
-   });
+module.exports = function (io, socket, client) {
 
 
-   //Read Discrete Inputs
-   socket.on('FC2-S-ON', function (data) {
-       if (!data) return;
+    socket.on('FC1-S-ON', function (data) {
+        if (!data) return;
 
-       var unit = data.unit;
-       var address = data.address;
-       var length = data.length;
-       var interval = data.interval;
-       if (!unit || typeof address == 'undefined' || !length) return;
+        var unit = data.unit;
+        var address = data.address;
+        var length = data.length;
+        var interval = data.interval;
 
-       if (interval) {
-           var id = setInterval(function () {
-               FC2(io,mobusS, unit, address, length);
-           }, interval);
+        if (!unit || typeof address == 'undefined' || !length) return;
+        if (interval) {
+            var id = setInterval(function () {
+                FC1(io, client, address, length);
+            }, interval);
 
-           intervalIDsS.push(id);
-
-       } else {
-           FC2(io,mobusS, unit, address, length);
-       }
-   });
+        } else {
+            FC1(io, client, address, length);
+        }
+    });
 
 
-   //Read Holding Registers
-   socket.on('FC3-S-ON', function (data) {
-       if (!data) return;
+    //Read Discrete Inputs
+    socket.on('FC2-S-ON', function (data) {
+        if (!data) return;
 
-       var unit = data.unit;
-       var address = data.address;
-       var length = data.length;
-       var interval = data.interval;
+        var unit = data.unit;
+        var address = data.address;
+        var length = data.length;
+        var interval = data.interval;
+        if (!unit || typeof address == 'undefined' || !length) return;
 
-       if (!unit || typeof address == 'undefined' || !length) return;
+        if (interval) {
+            var id = setInterval(function () {
+                FC2(io, client, address, length);
+            }, interval);
 
-       if (interval) {
-           var id = setInterval(function () {
-               FC3(io,mobusS, unit, address, length);
-           }, interval);
-        
-           intervalIDsS.push(id);
-
-       } else {
-           FC3(io,mobusS, unit, address, length);
-       }
-   });
+        } else {
+            FC2(io, client, address, length);
+        }
+    });
 
 
-   //Read Input Registers
-   socket.on('FC4-S-ON', function (data) {
-       if (!data) return;
+    //Read Holding Registers
+    socket.on('FC3-S-ON', function (data) {
+        if (!data) return;
 
-       var unit = data.unit;
-       var address = data.address;
-       var length = data.length;
-       var interval = data.interval;
+        var unit = data.unit;
+        var address = data.address;
+        var length = data.length;
+        var interval = data.interval;
 
-       if (!unit || typeof address == 'undefined' || !length) return;
+        if (!unit || typeof address == 'undefined' || !length) return;
 
-       if (interval) {
-           var id = setInterval(function () {
-               FC4(io,mobusS, unit, address, length);
-           }, interval);
+        if (interval) {
+            var id = setInterval(function () {
+                FC3(io, client, address, length);
+            }, interval);
 
-           intervalIDsS.push(id);
-
-       } else {
-           FC4(io,mobusS, unit, address, length);
-       }
-   });
+        } else {
+             FC3(io, client, address, length);
+        }
+    });
 
 
-   //writeCoil
-   socket.on('FC5-S-ON', function (data) {
-       if (!data) return;
+    //Read Input Registers
+    socket.on('FC4-S-ON', function (data) {
+        if (!data) return;
 
-       var unit = data.unit;
-       var address = data.address;
-       var state = data.state;
+        var unit = data.unit;
+        var address = data.address;
+        var length = data.length;
+        var interval = data.interval;
 
-       if (!unit ||
-           typeof address == 'undefined' ||
-           typeof state == 'undefined') return;
+        if (!unit || typeof address == 'undefined' || !length) return;
 
-           FC5(io,mobusS, unit, address, state);
-   });
+        if (interval) {
+            var id = setInterval(function () {
+                FC4(io, client, address, length);
+            }, interval);
 
 
+        } else {
+            FC4(io, client, address, length);
+        }
+    });
 
-   //writeRegisters
-   socket.on('FC16-S-ON', function (data) {
-       if (!data) return;
 
-       var unit = data.unit;
-       var address = data.address;
-       var values = data.values;
+    //writeCoil
+    socket.on('FC5-S-ON', function (data) {
+        if (!data) return;
 
-       if (!unit || typeof address == 'undefined' || !values) return;
-       FC16(io,mobusS, unit, address,values);
-   });
+        var unit = data.unit;
+        var address = data.address;
+        var state = data.state;
+
+        if (!unit || typeof address == 'undefined' || typeof state == 'undefined') return;
+
+            FC5(io, client, address,state);
+    });
+
+
+    //writeRegisters
+    socket.on('FC16-S-ON', function (data) {
+        if (!data) return;
+
+        var unit = data.unit;
+        var address = data.address;
+        var values = data.values;
+
+        if (!unit || typeof address == 'undefined' || !values) return;
+
+        FC16(io, client, address, values);
+    });
 };
 
-/*********************************************Library Emit Socket-IO  FC1-FC2-FC3-FC4-C5-FC16************************************** */
+
+
+
 
 /**
  * Write a Modbus "Read Coils" (FC=01). 
@@ -149,26 +141,23 @@ module.exports=function(io,socket,mobusS,intervalIDsS) {
  * 
  */
 
-var FC1 = function (io,mobusS,unit, address, length) {
-    mobusS.writeFC1(unit, address, length, function (err, msg) {
-        console.log("-----------------------------------------")
-        console.log(msg)
+var FC1 = function (io,client,address,length) {
+    client.readCoils(address, length, function (err, msg) {
         if (err) {
             console.log(err);
-            io.emit('FC1-S-EM', { 'err': err });
+            io.sockets.emit('FC1-S-EM', { 'err': err });
         } else {
-            io.emit('FC1-S-EM', {
-                'unit':     unit,
-                'type':     1,
-                'address':  address,
-                'data':     msg.data,
-                'flag':     'get'
+            io.sockets.emit('FC1-S-EM', {
+                'unit': unit,
+                'type': 1,
+                'address': address,
+                'data': msg.data,
+                'flag': 'get'
             });
             console.log("---------------------------------FC1-S-------------------------")
             console.log(msg.data)
         }
-    }
-    );
+    });
 }
 
 /** 
@@ -180,19 +169,18 @@ var FC1 = function (io,mobusS,unit, address, length) {
 * @param {number} length the total number of digital inputs requested.
 *
 */
-var FC2 = function (io, mobusS, unit, address, length) {
-    mobusS.writeFC2(unit, address, length,
-        function (err, msg) {
+var FC2 = function (io,client,address, length) {
+    client.readDiscreteInputs(address, length,function (err, msg) {
             if (err) {
                 console.log(err);
                 io.emit('FC2-S-EM', { 'err': err });
             } else {
                 io.emit('FC2-S-EM', {
-                    'unit':     unit,
-                    'type':     2,
-                    'address':  address,
-                    'data':     msg.data,
-                    'flag':     'get'
+                    'unit': unit,
+                    'type': 2,
+                    'address': address,
+                    'data': msg.data,
+                    'flag': 'get'
                 });
                 console.log("---------------------------------FC2-S-------------------------")
                 console.log(msg.data)
@@ -210,19 +198,18 @@ var FC2 = function (io, mobusS, unit, address, length) {
  * @param {number} address the Data Address of the first register.
  * @param {number} length the total number of registers requested.
  */
-var FC3 = function ( io, mobusS, unit, address, length) {
-    mobusS.writeFC3(unit, address, length,
-        function (err, msg) {
+var FC3 = function (io,client,address, length) {
+    client.readHoldingRegisters(address, length,function (err, msg) {
             if (err) {
                 console.log(err);
                 io.emit('FC3-S-EM', { 'err': err });
             } else {
                 io.emit('FC3-S-EM', {
-                    'unit':     unit,
-                    'type':     3,
-                    'address':  address,
-                    'data':     msg.data,
-                    'flag':     'get'
+                    'unit': unit,
+                    'type': 3,
+                    'address': address,
+                    'data': msg.data,
+                    'flag': 'get'
                 });
                 console.log("---------------------------------FC3-S-------------------------")
                 console.log(msg.data)
@@ -240,19 +227,18 @@ var FC3 = function ( io, mobusS, unit, address, length) {
  * @param {number} address the Data Address of the first register.
  * @param {number} length the total number of registers requested.
  */
-var FC4 = function (io, mobusS, unit, address, length) {
-    mobusS.writeFC4(unit, address, length,
-        function (err, msg) {
+var FC4 = function (io,client,address, length) {
+    client.readInputRegisters( address,length,function (err, msg) {
             if (err) {
                 console.log(err);
                 io.emit('FC4-S-EM', { 'err': err });
             } else {
                 io.emit('FC4-S-EM', {
-                    'unit':     unit,
-                    'type':     4,
-                    'address':  address,
-                    'data':     msg.data,
-                    'flag':     'get'
+                    'unit': unit,
+                    'type': 4,
+                    'address': address,
+                    'data': msg.data,
+                    'flag': 'get'
                 });
                 console.log("---------------------------------FC3-S-------------------------")
                 console.log(msg.data)
@@ -270,21 +256,19 @@ var FC4 = function (io, mobusS, unit, address, length) {
  * @param {number} address the Data Address of the coil.
  * @param {number} state the state to set into coil.
  */
-var FC5 = function ( io, mobusS,unit, address, state) {
-    mobusS.writeFC5(unit, address, state,
-        function (err, msg) {
-            console.log("----"+msg)
+var FC5 = function (io,client,address,state) {
+    client.writeCoil( address,state,function (err, msg) {
             if (err) {
                 console.log(err);
                 io.emit('FC5-S-EM', { 'err': err });
             } else {
                 io.emit('FC5-S-EM', {
-                    'unit':     unit,
-                    'type':     5,
-                    'address':  address,
-                    'data':     state,
-                    'flag':     'set'
-                }); 
+                    'unit': unit,
+                    'type': 5,
+                    'address': address,
+                    'data': state,
+                    'flag': 'set'
+                });
             }
         }
     );
@@ -299,19 +283,19 @@ var FC5 = function ( io, mobusS,unit, address, state) {
  * @param {number} address the Data Address of the first register.
  * @param {array} values the array of values to write to registers.
  */
-var FC16 = function ( io, mobusS, unit, address, values) {
-    mobusS.writeFC16(unit, address, values,
+var FC16 = function (io,client,address,values) {
+    client.writeRegisters( address, values,
         function (err, msg) {
             if (err) {
                 console.log(err);
                 io.emit('FC16-S-EM', { 'err': err });
             } else {
                 io.emit('FC16-S-EM', {
-                    'unit':     unit,
-                    'type':     3,
-                    'address':  address,
-                    'data':     values,
-                    'flag':     'set'
+                    'unit': unit,
+                    'type': 3,
+                    'address': address,
+                    'data': values,
+                    'flag': 'set'
                 });
             }
         }

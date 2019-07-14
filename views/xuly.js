@@ -23,7 +23,7 @@ socket.on("FC4-T-EM",function(data){
 
 
 //FC4-SERIAL
-socket.on("FC4-S-EM",function(data){
+socket.on("FC3-S-EM",function(data){
     $("#FC-S").append( "<div>" + data.data + "</div>");
 });
 
@@ -97,6 +97,7 @@ $(document).ready(function(){
             "length": 5,
             "interval": 2000
         });
+
     });
   
   

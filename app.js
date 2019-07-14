@@ -59,8 +59,8 @@ function isLoggedIn(req, res, next) {
 
 
 //Modbus Serial/TCP
-require("./modbus.client/io.modbus")(app,io);
 
+require("./modbus.client/io.modbus")(app,io);
 
 /*
 *
