@@ -11,7 +11,6 @@
 
 module.exports = function (io, socket, client) {
 
-
     socket.on('FC1-S-ON', function (data) {
         if (!data) return;
 
@@ -55,6 +54,7 @@ module.exports = function (io, socket, client) {
 
     //Read Holding Registers
     socket.on('FC3-S-ON', function (data) {
+        /*
         if (!data) return;
 
         var unit = data.unit;
@@ -70,8 +70,21 @@ module.exports = function (io, socket, client) {
             }, interval);
 
         } else {
-             FC3(io, client, address, length);
+            FC3(io, client, address, length);
         }
+        */
+       if (!data) return;
+       var address = data.address;
+       var length = data.length;
+       var interval = data.interval
+       setInterval(function () {
+           client.readHoldingRegisters(0, 10, function (err, data) {
+               console.log(data);
+               io.emit("FC3-S-EM", {
+                   "data": data.data
+               })
+           });
+       }, 2000);
     });
 
 
@@ -108,7 +121,7 @@ module.exports = function (io, socket, client) {
 
         if (!unit || typeof address == 'undefined' || typeof state == 'undefined') return;
 
-            FC5(io, client, address,state);
+        FC5(io, client, address, state);
     });
 
 
@@ -141,13 +154,13 @@ module.exports = function (io, socket, client) {
  * 
  */
 
-var FC1 = function (io,client,address,length) {
+var FC1 = function (io, client, address, length) {
     client.readCoils(address, length, function (err, msg) {
         if (err) {
             console.log(err);
-            io.sockets.emit('FC1-S-EM', { 'err': err });
+            io.emit('FC1-S-EM', { 'err': err });
         } else {
-            io.sockets.emit('FC1-S-EM', {
+            io.emit('FC1-S-EM', {
                 'unit': unit,
                 'type': 1,
                 'address': address,
@@ -169,23 +182,23 @@ var FC1 = function (io,client,address,length) {
 * @param {number} length the total number of digital inputs requested.
 *
 */
-var FC2 = function (io,client,address, length) {
-    client.readDiscreteInputs(address, length,function (err, msg) {
-            if (err) {
-                console.log(err);
-                io.emit('FC2-S-EM', { 'err': err });
-            } else {
-                io.emit('FC2-S-EM', {
-                    'unit': unit,
-                    'type': 2,
-                    'address': address,
-                    'data': msg.data,
-                    'flag': 'get'
-                });
-                console.log("---------------------------------FC2-S-------------------------")
-                console.log(msg.data)
-            }
+var FC2 = function (io, client, address, length) {
+    client.readDiscreteInputs(address, length, function (err, msg) {
+        if (err) {
+            console.log(err);
+            io.emit('FC2-S-EM', { 'err': err });
+        } else {
+            io.emit('FC2-S-EM', {
+                'unit': unit,
+                'type': 2,
+                'address': address,
+                'data': msg.data,
+                'flag': 'get'
+            });
+            console.log("---------------------------------FC2-S-------------------------")
+            console.log(msg.data)
         }
+    }
     );
 }
 
@@ -198,23 +211,23 @@ var FC2 = function (io,client,address, length) {
  * @param {number} address the Data Address of the first register.
  * @param {number} length the total number of registers requested.
  */
-var FC3 = function (io,client,address, length) {
-    client.readHoldingRegisters(address, length,function (err, msg) {
-            if (err) {
-                console.log(err);
-                io.emit('FC3-S-EM', { 'err': err });
-            } else {
-                io.emit('FC3-S-EM', {
-                    'unit': unit,
-                    'type': 3,
-                    'address': address,
-                    'data': msg.data,
-                    'flag': 'get'
-                });
-                console.log("---------------------------------FC3-S-------------------------")
-                console.log(msg.data)
-            }
+var FC3 = function (io, client, address, length) {
+    client.readHoldingRegisters(address, length, function (err, msg) {
+        if (err) {
+            console.log(err);
+            io.emit('FC3-S-EM', { 'err': err });
+        } else {
+            io.emit('FC3-S-EM', {
+                'unit': unit,
+                'type': 3,
+                'address': address,
+                'data': msg.data,
+                'flag': 'get'
+            });
+            console.log("---------------------------------FC3-S-------------------------")
+            console.log(msg.data)
         }
+    }
     );
 }
 
@@ -227,23 +240,23 @@ var FC3 = function (io,client,address, length) {
  * @param {number} address the Data Address of the first register.
  * @param {number} length the total number of registers requested.
  */
-var FC4 = function (io,client,address, length) {
-    client.readInputRegisters( address,length,function (err, msg) {
-            if (err) {
-                console.log(err);
-                io.emit('FC4-S-EM', { 'err': err });
-            } else {
-                io.emit('FC4-S-EM', {
-                    'unit': unit,
-                    'type': 4,
-                    'address': address,
-                    'data': msg.data,
-                    'flag': 'get'
-                });
-                console.log("---------------------------------FC3-S-------------------------")
-                console.log(msg.data)
-            }
+var FC4 = function (io, client, address, length) {
+    client.readInputRegisters(address, length, function (err, msg) {
+        if (err) {
+            console.log(err);
+            io.emit('FC4-S-EM', { 'err': err });
+        } else {
+            io.emit('FC4-S-EM', {
+                'unit': unit,
+                'type': 4,
+                'address': address,
+                'data': msg.data,
+                'flag': 'get'
+            });
+            console.log("---------------------------------FC3-S-------------------------")
+            console.log(msg.data)
         }
+    }
     );
 }
 
@@ -256,21 +269,21 @@ var FC4 = function (io,client,address, length) {
  * @param {number} address the Data Address of the coil.
  * @param {number} state the state to set into coil.
  */
-var FC5 = function (io,client,address,state) {
-    client.writeCoil( address,state,function (err, msg) {
-            if (err) {
-                console.log(err);
-                io.emit('FC5-S-EM', { 'err': err });
-            } else {
-                io.emit('FC5-S-EM', {
-                    'unit': unit,
-                    'type': 5,
-                    'address': address,
-                    'data': state,
-                    'flag': 'set'
-                });
-            }
+var FC5 = function (io, client, address, state) {
+    client.writeCoil(address, state, function (err, msg) {
+        if (err) {
+            console.log(err);
+            io.emit('FC5-S-EM', { 'err': err });
+        } else {
+            io.emit('FC5-S-EM', {
+                'unit': unit,
+                'type': 5,
+                'address': address,
+                'data': state,
+                'flag': 'set'
+            });
         }
+    }
     );
 }
 
@@ -283,8 +296,8 @@ var FC5 = function (io,client,address,state) {
  * @param {number} address the Data Address of the first register.
  * @param {array} values the array of values to write to registers.
  */
-var FC16 = function (io,client,address,values) {
-    client.writeRegisters( address, values,
+var FC16 = function (io, client, address, values) {
+    client.writeRegisters(address, values,
         function (err, msg) {
             if (err) {
                 console.log(err);

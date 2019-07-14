@@ -1,14 +1,14 @@
-var Modbus = require("modbus-serial");
-var tcpPort = new Modbus.TcpPort("127.0.0.1", { port: parseInt(502) });
-var networkErrors = ["ESOCKETTIMEDOUT", "ETIMEDOUT", "ECONNRESET", "ECONNREFUSED", "EHOSTUNREACH"];
+var ModbusRTU = require("modbus-serial");
+var tcpPort = new ModbusRTU.TcpPort("127.0.0.1", { port: parseInt(502) });
 var config = require("../models/home/modbus/configuration.model")
 
+var client = new ModbusRTU();
 
-var client = new Modbus();
+
 var modbusT;
 var intervalIDsT = [];
 
-module.exports = function (app, io) {
+module.exports = function (app,io) {
 
      app.get("/dashboard", function (req, res, next) {
 
@@ -21,18 +21,12 @@ module.exports = function (app, io) {
                     console.log("Serial Close")
                }
                else {
-                    console.log("ModbusSerial Open")
                     client.connectRTU("COM1", { baudRate: 9600 })
                          .then(setClient)
                          .then(function () {
-                              console.log("Connected");
+                              console.log("Modbus Serial Connection");
                          })
                          .catch(function (e) {
-                              if (e.errno) {
-                                   if (networkErrors.includes(e.errno)) {
-                                        console.log("we have to reconnect");
-                                   }
-                              }
                               console.log(e.message);
                          });
 
@@ -52,20 +46,20 @@ module.exports = function (app, io) {
                     intervalIDsT.map(clearInterval);
                }
                else {
-                    console.log("Modbus TCP/IP Open")
-                    modbusT = new Modbus(tcpPort);
+                    console.log("Modbus TCP/IP Connection")
+                    modbusT = new ModbusRTU(tcpPort);
                     modbusT.open();
 
                }
           });
           io.on('connection', function (socket) {
                socket.on('disconnect', function () {
-                    console.log('client disconnected');
+                    console.log('Client Disconnection');
                     intervalIDsT.map(clearInterval);
                });
                console.log('a user connected' + "-------" + socket.id);
-               require("../ioserver/modbus/serial")(io, socket, client);
-               require("../ioserver/modbus/tcp")(io, socket, modbusT, intervalIDsT);
+               require("../ioserver/modbus/serial")(io,socket,client);
+               require("../ioserver/modbus/tcp")(io,socket,modbusT,intervalIDsT);
 
           })
           res.render("dashboard");
