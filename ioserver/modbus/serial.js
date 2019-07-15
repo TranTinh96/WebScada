@@ -181,6 +181,8 @@ module.exports = function (io, socket, client) {
         if (typeof address == 'undefined' || typeof state == 'undefined') return;
         client.writeCoil(address, state, function (err, msg) {
             if (err) {
+
+                console.log("------------------------------------------------------------")
                 console.log(err);
                 io.emit('FC5-S-EM', { 'err': err });
             } else {
@@ -190,7 +192,6 @@ module.exports = function (io, socket, client) {
                     'data': state,
                     'flag': 'set'
                 });
-                console.log("------------------------------------")
             }
         }
         );

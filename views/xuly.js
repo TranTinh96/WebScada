@@ -73,11 +73,6 @@ $(document).ready(function(){
             "address": 2,
             "state": Boolean(this.checked)
         });
-        socket.emit("FC1-S-ON", {
-            "unit": 2,
-            "address": 2,
-            "length": 1
-        });
     });
 
     $("#toggle22").click(function(){
