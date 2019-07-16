@@ -19,8 +19,14 @@ var io = require("socket.io")(server);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+var db = require('./models/db');
 
-require("./middleware/index.middleware")(mongoose);
+mongoose.connect(db.url,{useNewUrlParser: true},function(err,data){
+    if(err)throw err;
+    console.log("Database connect")
+});
+
+
 require('./controllers/sign.controller')(Passport);
 
 
