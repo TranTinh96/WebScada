@@ -182,10 +182,11 @@ module.exports = function (io, socket, client) {
         client.writeCoil(address, state, function (err, msg) {
             if (err) {
 
-                console.log("------------------------------------------------------------")
+                console.log("---------------------------ERR FC5-S---------------------------------")
                 console.log(err);
                 io.emit('FC5-S-EM', { 'err': err });
             } else {
+                console.log("------------------------FC5-S------------------------------------")
                 io.emit('FC5-S-EM', {
                     'type': 5,
                     'address': address,
