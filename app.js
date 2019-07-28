@@ -63,14 +63,16 @@ function isLoggedIn(req, res, next) {
      res.redirect('/signin');
  };
 
-
-//Modbus Serial/TCP
-
+ /*
+*
+* Modbus Client
+*
+*/
 require("./modbus.client/io.modbus")(app,io);
 
 /*
 *
---------------------------------------OPC UA---------------------------------
+* OPC UA Client
 *
 */
 require("./ua.client/ua.url")(app);
